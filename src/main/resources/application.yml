@@ -1,0 +1,29 @@
+
+server:
+  port: 8888
+
+
+spring:
+  graphql:
+    schema:
+      printer:
+        enabled: true
+      locations: classpath*:graphql/**/
+    graphiql:
+      enabled: true
+  r2dbc:
+    url: r2dbc:oracle://localhost:1521
+    name: employees
+    username: tribune
+    password: Tribune@123
+  flyway:
+    password: Tribune@123
+    user: tribune
+    url: 'jdbc:oracle:thin:@//localhost:1521/employees'
+    locations: classpath:db/migration
+    default-schema: tribune
+
+
+
+
+

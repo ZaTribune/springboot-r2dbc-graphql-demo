@@ -1,0 +1,6 @@
+schema: ./**/*.graphqls
+documents: '**/*.graphqls'
+extensions:
+  endpoints:
+    One:
+      url: http://localhost:8888/graphql

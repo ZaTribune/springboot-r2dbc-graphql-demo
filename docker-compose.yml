@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  oracle-db-xe:
+    image: gvenzl/oracle-xe:18.4.0
+    container_name: oracle-db-xe
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=System@123
+      - ORACLE_DATABASE=employees
+      - APP_USER=tribune
+      - APP_USER_PASSWORD=Tribune@123
+    volumes:
+      - oracle-data-xe:/u01/app/oracle/oradata/XE
+
+volumes:
+  oracle-data-xe:

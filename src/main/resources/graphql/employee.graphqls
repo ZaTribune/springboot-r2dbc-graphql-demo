@@ -1,0 +1,55 @@
+
+
+input EmployeeInput {
+    firstName: String!
+    lastName: String!
+    position: String!
+    salary: Int
+    age: Int
+    organizationId: Int!
+    departmentId: Int!
+}
+
+type Employee {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    position: String!
+    salary: Int
+    age: Int
+    department: Department
+    organization: Organization
+}
+
+input EmployeeFilter {
+    salary: FilterField
+    age: FilterField
+    position: FilterField
+    sortBy: String,
+    direction: Direction 
+}
+
+enum Direction{
+    ASC,DESC
+}
+
+input FilterField {
+    operator: String!
+    value: String!
+}
+
+#All queries
+type Query {
+    getAll: [Employee]
+    findById(id: Int): Employee
+    findWithFilter(filter: EmployeeFilter): [Employee]
+}
+#All mutations
+type Mutation {
+    newEmployee(employee: EmployeeInput!): Employee
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}

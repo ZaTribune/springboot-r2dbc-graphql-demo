@@ -1,0 +1,1 @@
+package org.tribune.demo.graphql.db;
